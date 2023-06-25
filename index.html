@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar App de Agendamento</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="google-signin-client_id" content="SEU_CLIENT_ID_DO_GOOGLE">
+    
+</head>
+<body>
+    
+<h1>Cadastro de Empresas</h1>
+<div style="display: flex; justify-content: center; color: aqua;">
+<input type="submit" value="Infomações" onclick="exibirInformacoesComplementares('nome')" style="display: flex; justify-content: center; background-color: rgb(220, 239, 9);">
+</div>
+
+<form id="cadastro-form" action="agendamento.html" method="POST" enctype="multipart/form-data" style="display: block; margin: 0 auto;">
+  
+<span>
+  <div class="horario-group">
+    <label for="logo">Logotipo:</label>
+    <input type="file" id="logo" name="logo" accept="image/*"><br>
+  </div>
+</span>
+
+<span>
+  <div class="horario-group">
+    <label for="nome">Nome do seu Negocio:</label>
+    <input type="text" id="nome" name="nome" required><br>
+  </div>
+</span>
+
+    <span>
+      <div class="horario-group">
+    <label for="nome">WhatsApp do seu Negocio:</label>
+    <input type="number" id="whatsapp" name="whatsapp" min="10000000"><br>
+  </div>
+</span>
+
+<span>
+  <div class="horario-group">
+    <label for="rede-social">Redes Sociais</label>
+    <div id="redes-sociais">
+      <div class="rede-social">
+          <select name="rede-social[]">
+            <option value="instagram">Instagram</option>
+            <option value="facebook">Facebook</option>
+            <option value="twitter">Twitter</option>
+          </select>
+        <input type="text" name="usuario[]" placeholder="@ do seu Negocio">
+       </div>
+      </div>
+
+      <div id="redes-sociais">
+        <div class="rede-social">
+            <select name="rede-social[]">
+              <option value="instagram">Instagram</option>
+              <option value="facebook">Facebook</option>
+              <option value="twitter">Twitter</option>
+            </select>
+          <input type="text" name="usuario[]" placeholder="@ do seu Negocio">
+         </div>
+        </div>
+
+        <div id="redes-sociais">
+          <div class="rede-social">
+              <select name="rede-social[]">
+                <option value="instagram">Instagram</option>
+                <option value="facebook">Facebook</option>
+                <option value="twitter">Twitter</option>
+              </select>
+            <input type="text" name="usuario[]" placeholder="@ do seu Negocio">
+           </div>
+          </div>
+  </div>
+</span>
+
+    <span>
+      <div class="horario-group">
+    <label for="descricao">Descrição:</label>
+    <textarea id="descricao" name="descricao" rows="4"></textarea>
+  </div>
+</span>
+
+  <span>
+    <div class="horario-group">
+      <div id="dias">
+        <label for="dias">Dias de Atendimento:</label><br>
+        <input type="checkbox" id="segunda" name="dias[]" value="segunda">
+        <label for="segunda">Segunda</label>
+        <input type="checkbox" id="terca" name="dias[]" value="terca">
+        <label for="terca">Terça</label>
+        <input type="checkbox" id="quarta" name="dias[]" value="quarta">
+        <label for="quarta">Quarta</label><br>
+        <input type="checkbox" id="quinta" name="dias[]" value="quinta">
+        <label for="quinta">Quinta</label>
+        <input type="checkbox" id="sexta" name="dias[]" value="sexta">
+        <label for="sexta">Sexta</label>
+    </div>
+  </div>
+</span>
+    <!-- Adicione os demais dias aqui -->
+  <span>
+    <div class="horario-group">
+      <label for="horarios">Horários de Atendimento Seg a Sex:</label><br>
+      <label for="horario-inicio">De:</label>
+      <input type="time" id="horario-inicio" name="horario-inicio">
+      <label for="horario-fim">Até:</label>
+      <input type="time" id="horario-fim" name="horario-fim"><br>
+    </div>
+  </span>
+
+  <span>
+    <div class="horario-group">
+      <label for="sabado">Sabado</label>
+      <input type="checkbox" id="sabado" name="dias[]" value="sabado">
+      <label for="horarios">Horário de Sabados:</label><br>
+      <label for="horario-inicio-sabado">De:</label>
+      <input type="time" id="horario-inicio-sabado" name="horario-inicio-sabado">
+      <label for="horario-fim-sabado">Até:</label>
+      <input type="time" id="horario-fim-sabado" name="horario-fim-sabado"><br>
+    </div>
+  </span>
+
+  <span>
+    <div class="horario-group">
+      <label for="domingo">Domingo</label>
+      <input type="checkbox" id="domingo" name="dias[]" value="domingo">
+      <label for="horarios">Horário de Domingos:</label><br>
+      <label for="horario-inicio-domingo">De:</label>
+      <input type="time" id="horario-inicio-domingo" name="horario-inicio-domingo">
+      <label for="horario-fim-domingo">Até:</label>
+      <input type="time" id="horario-fim-domingo" name="horario-fim-domingo"><br>
+    </div>
+  </span>
+
+  <span>
+    <div class="horario-group">
+      <label for="horarios">Horário de Feriados:</label><br>
+      <label for="horario-inicio-feriado">De:</label>
+      <input type="time" id="horario-inicio-feriado" name="horario-inicio-feriado">
+      <label for="horario-fim-feriado">Até:</label>
+      <input type="time" id="horario-fim-feriado" name="horario-fim-feriado"><br>
+    </div>
+  </span>
+    <!-- Adicione os demais horários aqui -->
+  <span>
+    <div class="horario-group">
+    <label for="intervalo">Intervalo de Atendimento a outro:</label>
+    <input type="time" id="atendimento" name="atendimento"><br>
+    </div>
+  </span>
+    <label for="endereco">Endereço:</label><br>
+    <textarea id="endereco" name="endereco" rows="5" cols="30"></textarea><br>
+
+    <input type="submit" value="Cadastrar" > 
+  </form>
+  
+
+<script src="script.js"></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+  // Obtenha os parâmetros da URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const dadosCodificados = urlParams.get('dados');
+
+  // Decodifique os dados
+  const dadosAgendamento = JSON.parse(decodeURIComponent(dadosCodificados));
+
+  // Exiba as informações na página
+  let agendamentoContainer = document.getElementById('agendamento-container');
+
+  if (dadosAgendamento.logo) {
+    let divLogo = document.createElement('div');
+    divLogo.textContent = 'Imagem: ' + dadosAgendamento.logo;
+    agendamentoContainer.appendChild(divLogo);
+  }
+
+  if (dadosAgendamento.whatsapp) {
+    let divWhatsApp = document.createElement('div');
+    divWhatsApp.textContent = 'WhatsApp: ' + dadosAgendamento.whatsapp;
+    agendamentoContainer.appendChild(divWhatsApp);
+  }
+
+  if (dadosAgendamento.redesSociais.length > 0) {
+    let divRedesSociais = document.createElement('div');
+    divRedesSociais.textContent = 'Redes Sociais:';
+    agendamentoContainer.appendChild(divRedesSociais);
+
+    for (let i = 0; i < dadosAgendamento.redesSociais.length; i++) {
+      let redeSocial = dadosAgendamento.redesSociais[i];
+      let divRedeSocial = document.createElement('div');
+      divRedeSocial.textContent = 'Rede: ' + redeSocial.redeSocial + ', Usuário: ' + redeSocial.usuario;
+      agendamentoContainer.appendChild(divRedeSocial);
+    }
+  }
+
+  // Continue exibindo as informações para os outros campos do formulário
+
+});
+
+    </script>
+</body>
+</html>
